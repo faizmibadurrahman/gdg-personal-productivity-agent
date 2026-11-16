@@ -2,11 +2,11 @@
 
 GDG on Campus Universiti Malaya × REC | Let Him Cook
 
-A simple personal productivity agent built with Google ADK and Gemini. The code is ready. Run it, try its tools, and customize how it responds.
+A simple personal productivity agent built with Google ADK and Gemini. The code is ready. Run it, try its tools, and make it your own personal assistant.
 
 ## 1. Get started
 
-You need Python 3.11 or 3.12, VS Code, internet access, and your own [Gemini API key](https://aistudio.google.com/app/apikey). Use only fictional task data; prompts and tool results can be sent to Gemini.
+You need Python 3.11 or 3.12, VS Code, internet access, and your own [Gemini API key](https://aistudio.google.com/app/apikey). Use fictional or non-sensitive profile and task details; instructions, prompts and tool results can be sent to Gemini.
 
 Open a terminal:
 
@@ -70,31 +70,49 @@ Look at the tool calls in ADK Web. The new task should appear in `productivity_a
 
 | File | Purpose |
 | --- | --- |
-| `agent.py` | Sets the model, instructions and available tools. |
+| `agent.py` | Sets the model, personal profile, instructions and available tools. |
 | `tools.py` | Defines `get_tasks()`, `get_schedule()` and `add_task()`. |
 | `data.json` | Stores your local tasks and schedule. Created from `sample_data.json` on the first tool call. |
 
 These files are inside `productivity_agent/`.
 
-## 6. Your turn
+## 6. Your turn: make it yours
 
-Open `productivity_agent/agent.py` and find:
-
-```python
-PERSONAL_STYLE = "Be friendly and suggest realistic study breaks."
-```
-
-Change it. For example:
+Open `productivity_agent/agent.py` and find the personal profile:
 
 ```python
-PERSONAL_STYLE = "Act as a strict study coach. Prioritize urgent deadlines and give me a short checklist."
+PERSONAL_PROFILE = """
+My name is John Pork.
+I am a university student studying Computer Science.
+
+My priorities:
+- Academic assignments
+- Clubs
+- Personal wellbeing
+
+My preferences:
+- I am most productive in the morning.
+- I prefer 45-minute study sessions.
+- Give me a 15-minute break between sessions.
+- Keep my evenings free after 8 PM.
+- Prioritize upcoming deadlines.
+
+Plan my day around my preferences,
+existing commitments and unfinished tasks.
+"""
 ```
 
-Save the file, stop ADK with `Ctrl+C`, run the same launch command again, and start a new session. Ask it to plan your day again. What changed?
+Replace John Pork's fictional profile with your own fictional or non-sensitive details. Freely change the name, role, priorities, work habits, preferred study times, breaks and other planning preferences. Keep the opening and closing triple quotes. You do not need to modify the tools or the rest of the Python code.
 
-Next, open `productivity_agent/data.json` and change one fictional task. Ask the agent to list your tasks again.
+Save the file, stop ADK with `Ctrl+C`, run the same launch command again, and start a new session. Try the same prompt as before:
 
-**Done!** You have run an AI agent, used its tools, and customized its behavior.
+> Plan my day on 27 November 2026 around my schedule and deadlines, taking my preferences into account.
+
+Compare the new plan with your original one. Did the agent adapt its work sessions, breaks and priorities while respecting your fixed commitments?
+
+Next, open `productivity_agent/data.json` and change one fictional task or scheduled activity. Keep the JSON format intact. Ask the agent to plan your day again. The profile tells the agent how to plan; the tools provide the task and schedule data.
+
+**Done!** You have run an AI agent, used its tools, and made it your own personal productivity assistant.
 
 ## Quick fixes
 
