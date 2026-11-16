@@ -1,0 +1,11 @@
+{
+  "tasks": [
+    {"title": "Finish lab report", "deadline": "2026-11-28", "priority": "high", "completed": false},
+    {"title": "Revise computing mathematics", "deadline": "2026-11-30", "priority": "medium", "completed": false},
+    {"title": "Buy robot components", "deadline": "2026-12-01", "priority": "low", "completed": false}
+  ],
+  "schedule": [
+    {"time": "09:00-11:00", "event": "Programming lecture"},
+    {"time": "14:00-15:00", "event": "REC meeting"}
+  ]
+}
